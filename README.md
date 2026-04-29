@@ -1,20 +1,25 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Học Tập Lớp 5
 
-# Run and deploy your AI Studio app
+Ứng dụng học tập lớp 5 với Toán, Tiếng Việt, Khoa học, Lịch sử - Địa lý. Bài học tương tác, quiz, chatbot AI Gemini.
 
-This contains everything you need to run your app locally.
+## Chạy local
+```bash
+npm install
+echo GEMINI_API_KEY=your_key > .env.local
+npm run dev  # http://localhost:3000
+```
 
-View your app in AI Studio: https://ai.studio/apps/d961b953-38f1-47f1-af35-94de3db3bbaa
+## Deploy GitHub Pages
+```bash
+npm run deploy
+```
+- Enable Pages: Settings > Pages > Source: gh-pages branch.
+- Live: https://huynguyenwi.github.io/lophoc10
 
-## Run Locally
+## Scripts
+- `npm run build` - Tạo dist/
+- `npm run lint` - Kiểm tra TS
+- `npm run preview` - Preview build
 
-**Prerequisites:**  Node.js
+Built with Vite + React 19 + Tailwind + Framer Motion.
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
