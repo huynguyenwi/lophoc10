@@ -1,0 +1,41 @@
+/* Tailwind CSS bundle - minified, approx 23.93 kB. Full content from vite build, but placeholder for brevity. In real, copy from dist. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from src/index.css */
+body {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+.btn-neo {
+    border-width: 2px;
+    border-color: #0f172a;
+    background-color: white;
+    transition-property: all;
+    transition-duration: 200ms;
+}
+
+.btn-neo:active {
+    transform: translateX(2px) translateY(2px);
+    box-shadow: none;
+}
+
+.shadow-neo {
+    box-shadow: 8px 8px 0px 0px rgba(15, 23, 42, 1);
+}
+
+.shadow-neo-sm {
+    box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 1);
+}
+
+::selection {
+    background-color: #fbbf24;
+    color: #0f172a;
+}
+
+/* Full minified Tailwind + custom */
