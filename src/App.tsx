@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { subjects } from './data/lessons';
 import { Icons } from './components/Icons';
 import SubjectCard from './components/SubjectCard';
@@ -38,23 +38,23 @@ export default function App() {
       {/* Navigation Header */}
       <nav className="sticky top-0 z-50 h-20 bg-white border-b-4 border-slate-900 flex items-center justify-between px-6 sm:px-10 shrink-0">
         <div className="flex items-center gap-4">
-          <div 
+          <div
             onClick={() => setView('home')}
             className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-2xl tracking-tighter cursor-pointer"
           >
             5+
           </div>
-          <h1 
+          <h1
             onClick={() => setView('home')}
             className="text-2xl sm:text-3xl font-black uppercase tracking-tight cursor-pointer select-none"
           >
             Học Tập <span className="text-blue-600">Lớp 5</span>
           </h1>
         </div>
-        
+
         <div className="hidden md:flex gap-8 font-black uppercase text-sm tracking-widest">
           {subjects.map(s => (
-            <button 
+            <button
               key={s.id}
               onClick={() => handleSubjectClick(s.id)}
               className={`pb-1 transition-all border-b-4 ${activeSubjectId === s.id ? 'text-blue-600 border-blue-600' : 'text-slate-400 border-transparent hover:text-slate-900'}`}
@@ -85,7 +85,7 @@ export default function App() {
                   <span className="text-sm font-black uppercase tracking-tighter">Chào mừng học sinh lớp 5</span>
                 </div>
                 <h2 className="text-6xl sm:text-8xl font-black uppercase leading-[0.85] tracking-tighter text-slate-900 max-w-4xl">
-                  Khám phá <br/><span className="text-blue-600">TRI THỨC</span> MỚI
+                  Khám phá <br /><span className="text-blue-600">TRI THỨC</span> MỚI
                 </h2>
                 <p className="text-xl font-bold text-slate-500 max-w-2xl leading-tight">
                   Tự tin chinh phục kiến thức lớp 5 với hệ thống bài giảng sinh động và bài tập rèn luyện mỗi ngày.
@@ -116,17 +116,16 @@ export default function App() {
                   </button>
                   <h2 className="text-xs font-black uppercase tracking-widest text-slate-400">Danh sách bài học</h2>
                 </div>
-                
+
                 <div className="flex flex-col gap-3">
                   {activeSubject.lessons.map((lesson, idx) => (
                     <button
                       key={lesson.id}
                       onClick={() => handleLessonClick(lesson.id)}
-                      className={`text-left p-5 rounded-xl border-2 transition-all ${
-                        activeLessonId === lesson.id 
-                          ? 'bg-blue-600 text-white border-slate-900 shadow-neo-sm translate-x-1 translate-y-1' 
+                      className={`text-left p-5 rounded-xl border-2 transition-all ${activeLessonId === lesson.id
+                          ? 'bg-blue-600 text-white border-slate-900 shadow-neo-sm translate-x-1 translate-y-1'
                           : 'bg-white border-slate-200 hover:border-slate-900 hover:bg-slate-50'
-                      }`}
+                        }`}
                     >
                       <p className={`text-[10px] font-black uppercase tracking-widest ${activeLessonId === lesson.id ? 'opacity-80' : 'text-slate-400'}`}>
                         Bài {idx + 1}
@@ -144,10 +143,10 @@ export default function App() {
                     <span className="text-sm font-black uppercase tracking-tighter">{activeSubject.name}</span>
                   </div>
                   <h2 className="text-6xl font-black uppercase leading-none tracking-tighter text-slate-900">
-                    Sẵn sàng <br/>để học chưa?
+                    Sẵn sàng <br />để học chưa?
                   </h2>
                 </div>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="p-8 bg-white border-4 border-slate-900 shadow-neo rounded-sm">
                     <h3 className="text-2xl font-black uppercase tracking-tighter mb-4">Hãy chọn một bài học</h3>
@@ -186,21 +185,19 @@ export default function App() {
                 <div className="flex bg-slate-200 p-1 border-4 border-slate-900 rounded-xl gap-1 shrink-0">
                   <button
                     onClick={() => setLessonMode('theory')}
-                    className={`px-8 py-3 rounded-lg font-black uppercase tracking-widest transition-all ${
-                      lessonMode === 'theory' 
-                        ? 'bg-slate-900 text-white' 
+                    className={`px-8 py-3 rounded-lg font-black uppercase tracking-widest transition-all ${lessonMode === 'theory'
+                        ? 'bg-slate-900 text-white'
                         : 'text-slate-500 hover:bg-slate-300'
-                    }`}
+                      }`}
                   >
                     Lý thuyết
                   </button>
                   <button
                     onClick={() => setLessonMode('practice')}
-                    className={`px-8 py-3 rounded-lg font-black uppercase tracking-widest transition-all ${
-                      lessonMode === 'practice' 
-                        ? 'bg-slate-900 text-white' 
+                    className={`px-8 py-3 rounded-lg font-black uppercase tracking-widest transition-all ${lessonMode === 'practice'
+                        ? 'bg-slate-900 text-white'
                         : 'text-slate-500 hover:bg-slate-300'
-                    }`}
+                      }`}
                   >
                     Luyện tập
                   </button>
@@ -247,8 +244,8 @@ export default function App() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                     >
-                      <QuizSection 
-                        questions={activeLesson.questions} 
+                      <QuizSection
+                        questions={activeLesson.questions}
                         onComplete={() => setView('subject')}
                       />
                     </motion.div>

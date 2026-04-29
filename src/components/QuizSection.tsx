@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Question } from '../types';
 import { Icons } from './Icons';
 
@@ -71,9 +71,9 @@ export default function QuizSection({ questions, onComplete }: QuizSectionProps)
           </div>
           <div className="flex items-center gap-2">
             {[...Array(questions.length)].map((_, i) => (
-              <div 
-                key={i} 
-                className={`w-3 h-3 border-2 border-slate-900 rounded-sm ${i <= currentQuestionIndex ? 'bg-blue-600' : 'bg-white'}`} 
+              <div
+                key={i}
+                className={`w-3 h-3 border-2 border-slate-900 rounded-sm ${i <= currentQuestionIndex ? 'bg-blue-600' : 'bg-white'}`}
               />
             ))}
           </div>
@@ -100,7 +100,7 @@ export default function QuizSection({ questions, onComplete }: QuizSectionProps)
         {currentQuestion.options.map((option, index) => {
           const isCorrect = index === currentQuestion.correctAnswer;
           const isSelected = index === selectedOption;
-          
+
           let buttonClass = "w-full p-6 text-left rounded-xl border-4 transition-all relative group ";
           if (!showResult) {
             buttonClass += "border-slate-900 bg-white hover:bg-blue-50 shadow-neo-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none";

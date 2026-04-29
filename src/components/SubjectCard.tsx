@@ -1,8 +1,9 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Icons, IconName } from './Icons';
 import { Subject } from '../types';
 
 interface SubjectCardProps {
+  key?: string;
   subject: Subject;
   onClick: (id: string) => void;
 }

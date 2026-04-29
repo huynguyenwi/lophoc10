@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Icons } from './Icons';
 import { GoogleGenAI } from "@google/genai";
 
@@ -40,11 +40,13 @@ export default function ChatBot() {
         contents: [
           {
             role: "user",
-            parts: [{ text: `Bạn là một trợ lý học tập thân thiện dành cho học sinh lớp 5 tại Việt Nam. 
+            parts: [{
+              text: `Bạn là một trợ lý học tập thân thiện dành cho học sinh lớp 5 tại Việt Nam. 
               Hãy trả lời bằng tiếng Việt, ngôn ngữ dễ hiểu, khích lệ và lễ phép. 
               Bạn có thể giúp giải toán, giải thích kiến thức Tiếng Việt, Khoa học, Lịch sử và Địa lý lớp 5.
               
-              Câu hỏi hiện tại của học sinh là: ${userMessage}` }]
+              Câu hỏi hiện tại của học sinh là: ${userMessage}`
+            }]
           }
         ],
         config: {
@@ -80,7 +82,7 @@ export default function ChatBot() {
                 </div>
                 <span className="font-black uppercase tracking-tight">Gia Sư AI Lớp 5</span>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-blue-700 rounded transition-colors"
               >
@@ -91,8 +93,8 @@ export default function ChatBot() {
             {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
               {messages.map((msg, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div className={`
